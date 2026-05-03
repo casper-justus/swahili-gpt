@@ -7,6 +7,12 @@
 
 A ~30 million parameter language model trained entirely from scratch on a pure Kiswahili dataset. Built using JAX and Flax (NNX API), this project demonstrates an end-to-end pipeline for training a compute-optimal Small Language Model (SLM) on Google Colab's free T4 GPUs.
 
+## 📉 Training Loss Curve
+
+![Training Loss Curve](assets/loss_curve.png)
+
+> Loss dropped from **9.56 → ~3.8** in the first 5,000 steps, confirming the model is learning Kiswahili structure. Full training runs to 200,000 steps.
+
 ## 🌟 Project Overview
 
 This model is designed to be a highly efficient, lightweight Kiswahili text generation engine. By restricting the vocabulary to 10,000 tokens, the BPE tokenizer is forced to learn the agglutinative grammatical structure of Kiswahili (prefixes, infixes, roots) rather than memorizing massive words.
@@ -31,6 +37,8 @@ swahili-gpt/
 ├── inference.py                              # Generate text from a saved checkpoint
 ├── requirements.txt                          # Python dependencies
 ├── kenya_tokenizer.json                      # Custom 10k BPE tokenizer (upload to Drive)
+├── assets/
+│   └── loss_curve.png                        # Training loss chart
 └── LICENSE
 ```
 
