@@ -1,6 +1,7 @@
 # Swahili GPT (MiniGPT-JAX) 🇰🇪🤖
 
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/casper-justus/swahili-gpt/blob/main/MiniGPT_Kiswahili_Resumable_Final.ipynb)
+[![Inference Demo](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/casper-justus/swahili-gpt/blob/main/inference_demo.ipynb)
 ![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
 ![JAX](https://img.shields.io/badge/Framework-JAX%20%2B%20Flax-blue)
 ![Language](https://img.shields.io/badge/Language-Kiswahili-green)
@@ -33,10 +34,11 @@ This model is designed to be a highly efficient, lightweight Kiswahili text gene
 
 ```
 swahili-gpt/
-├── MiniGPT_Kiswahili_Resumable_Final.ipynb  # Training notebook (Google Colab)
-├── inference.py                              # Generate text from a saved checkpoint
+├── MiniGPT_Kiswahili_Resumable_Final.ipynb  # Training notebook
+├── inference_demo.ipynb                      # Interactive inference on Colab
+├── inference.py                              # CLI inference script (local)
 ├── requirements.txt                          # Python dependencies
-├── kenya_tokenizer.json                      # Custom 10k BPE tokenizer (upload to Drive)
+├── kenya_tokenizer.json                      # Custom 10k BPE tokenizer
 ├── assets/
 │   └── loss_curve.png                        # Training loss chart
 └── LICENSE
@@ -44,22 +46,21 @@ swahili-gpt/
 
 ## 🚀 Getting Started
 
-### Train the model (Google Colab)
+### Option A — Run inference on Colab (no setup)
+Click the **Inference Demo** badge above. Mount your Drive and run all cells.
+
+### Option B — Train the model yourself
 1. Click the **Open in Colab** badge above.
 2. Go to **Runtime → Change runtime type → T4 GPU → Save**.
-3. Upload `kenya_tokenizer.json` to your Google Drive at `/MyDrive/MiniGPT_Kiswahili_Checkpoints/`.
+3. Upload `kenya_tokenizer.json` to `/MyDrive/MiniGPT_Kiswahili_Checkpoints/` on Drive.
 4. Run all cells. Checkpoints save to Drive every 5,000 steps — reconnect anytime to resume.
 
-### Generate text locally (after training)
+### Option C — Run locally after training
 ```bash
-# 1. Clone the repo
 git clone https://github.com/casper-justus/swahili-gpt.git
 cd swahili-gpt
-
-# 2. Install dependencies
 pip install -r requirements.txt
 
-# 3. Run inference
 python inference.py \
   --ckpt_dir ./MiniGPT_Kiswahili_Checkpoints \
   --prompt "Habari za asubuhi" \
