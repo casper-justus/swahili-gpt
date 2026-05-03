@@ -1,0 +1,22 @@
+# Swahili GPT — Python Dependencies
+# Install with: pip install -r requirements.txt
+#
+# For GPU (CUDA 12) support on a local machine or Colab:
+#   pip install "jax[cuda12]" --upgrade
+# For CPU-only (slower, but works without a GPU):
+#   pip install jax --upgrade
+
+# Core ML stack
+jax>=0.10.0
+flax>=0.12.0
+optax>=0.2.8
+orbax-checkpoint>=0.11.0
+
+# Dataset loading
+datasets>=4.0.0
+
+# Tokenizer
+tokenizers>=0.22.0
+
+# Utilities
+numpy>=2.0.0
